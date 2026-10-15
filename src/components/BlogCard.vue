@@ -2,6 +2,14 @@
 <script setup>
 import { useFavoriteStore } from '../stores/useFavoriteStore.js';
 
+const props = defineProps({
+  id: Number,       // 新增：文章 ID，用于跳转
+  title: String,
+  summary: String,
+  date: String,
+  category: String
+})
+
 const favoriteStore = useFavoriteStore();
 
 function handleFavorite(e) {
@@ -9,13 +17,7 @@ function handleFavorite(e) {
   favoriteStore.toggleFavorite(props.id);
 }
 
-defineProps({
-  id: Number,       // 新增：文章 ID，用于跳转
-  title: String,
-  summary: String,
-  date: String,
-  category: String
-})
+
 </script>
 
 <template>
